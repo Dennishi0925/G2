@@ -32,23 +32,25 @@
   //使得我们可以声明式地描述数据和图表中图形元素之间的关系，
   //从而描述最后的可视化。
   chart
-    .interval() // 创建一个 Interval 标记
+    //.interval() // 创建一个 Interval 标记
+    .point()
     //.data(data) // 绑定数据
     .data({
     type: 'fetch',
     value:
-      '/Users/macuser/Documents/GitHub/G2/test/data/three.json',
+      'https://raw.githubusercontent.com/Dennishi0925/G2/main/test/data/three.json',
       //'https://gw.alipayobjects.com/os/basement_prod/6b4aa721-b039-49b9-99d8-540b3f87d339.json',
     })
-    .encode('x', 'genre') // 编码 x 通道
-    .encode('y', 'sold'); // 编码 y 通道
+    .encode('x', 'try_avg_three') // 编码 x 通道
+    .encode('y', 'per_three') // 编码 y 通道
+    .encode('color', 'team')
   
   // 标记（Mark） 是一个模版  
-  chart  
-    .style('viewFill', '#4e79a7') // 设置视图区域样式
-    .style('plotFill', '#f28e2c') // 绘制区域样式
-    .style('mainFill', '#e15759') // 主区域样式
-    .style('contentFill', '#76b7b2'); // 内容区域样式
+  // chart  
+  //   .style('viewFill', '#4e79a7') // 设置视图区域样式
+  //   .style('plotFill', '#f28e2c') // 绘制区域样式
+  //   .style('mainFill', '#e15759') // 主区域样式
+  //   .style('contentFill', '#76b7b2'); // 内容区域样式
   //这些 API 本质上是不断地去修改这个内部存储可视化描述的选项，
   //不同的 API 有不同的改变选项的行为
   
