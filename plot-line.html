@@ -33,17 +33,34 @@
   //从而描述最后的可视化。
   chart
     //.interval() // 创建一个 Interval 标记
+    .line()
+    //.data(data) // 绑定数据
+    .data({
+    type: 'fetch',
+    value:
+      'https://raw.githubusercontent.com/Dennishi0925/G2/main/data/citizen.json',
+      //'https://gw.alipayobjects.com/os/basement_prod/6b4aa721-b039-49b9-99d8-540b3f87d339.json',
+    })
+    .encode('x', (d) => new Date(d.date)) // 编码 x 通道
+    .encode('y', 'diff') // 编码 y 通道
+    .encode('color', 'location')
+    .axis('y', { labelFormatter: '.0%' });
+  chart
+    //.interval() // 创建一个 Interval 标记
     .point()
     //.data(data) // 绑定数据
     .data({
     type: 'fetch',
     value:
-      'https://raw.githubusercontent.com/Dennishi0925/G2/main/test/data/three.json',
+      'https://raw.githubusercontent.com/Dennishi0925/G2/main/data/citizen.json',
       //'https://gw.alipayobjects.com/os/basement_prod/6b4aa721-b039-49b9-99d8-540b3f87d339.json',
     })
-    .encode('x', 'try_avg_three') // 编码 x 通道
-    .encode('y', 'per_three') // 编码 y 通道
-    .encode('color', 'team')
+    .encode('x', (d) => new Date(d.date)) // 编码 x 通道
+    .encode('y', 'diff') // 编码 y 通道
+    .encode('color', 'location')
+    .encode('fill', 'location')
+    //.axis('y', { labelFormatter: '.0%' });
+  
   
   // 标记（Mark） 是一个模版  
   // chart  
