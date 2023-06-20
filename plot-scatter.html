@@ -38,12 +38,17 @@
     .data({
     type: 'fetch',
     value:
-      'https://raw.githubusercontent.com/Dennishi0925/G2/main/test/data/three.json',
+      'https://assets.antv.antgroup.com/g2/penguins.json',
+      //'https://raw.githubusercontent.com/Dennishi0925/G2/main/test/data/three.json',
       //'https://gw.alipayobjects.com/os/basement_prod/6b4aa721-b039-49b9-99d8-540b3f87d339.json',
     })
-    .encode('x', 'try_avg_three') // 编码 x 通道
-    .encode('y', 'per_three') // 编码 y 通道
-    .encode('color', 'team')
+    //.encode('x', (d) => +d.culmen_depth_mm)
+    //.encode('y', (d) => +d.culmen_length_mm);
+    .encode('x', 'culmen_depth_mm')
+    .encode('y', 'culmen_length_mm');
+    //.encode('x', 'try_avg_three') // 编码 x 通道
+    //.encode('y', 'per_three') // 编码 y 通道
+    //.encode('color', 'team')
   
   // 标记（Mark） 是一个模版  
   // chart  
