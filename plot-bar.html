@@ -26,7 +26,7 @@
     //autoFit: true,
     theme: 'classic',
   });
-
+  //chart.facetRect().point().transform({ type: 'pack' });
   //声明可视化
   //G2 图表实例使用了一种函数式风格的声明形式 API，
   //使得我们可以声明式地描述数据和图表中图形元素之间的关系，
@@ -38,18 +38,21 @@
     .data({
     type: 'fetch',
     value:
-      'https://assets.antv.antgroup.com/g2/penguins.json',
-      //'https://raw.githubusercontent.com/Dennishi0925/G2/main/test/data/three.json',
-      //'https://gw.alipayobjects.com/os/basement_prod/6b4aa721-b039-49b9-99d8-540b3f87d339.json',
+      'https://raw.githubusercontent.com/Dennishi0925/G2/main/data/df_sister_agg.csv'
     })
     //.encode('x', (d) => +d.culmen_depth_mm)
     //.encode('y', (d) => +d.culmen_length_mm);
-    .encode('x', 'type')
-    .encode('y', 'n');
-    //.encode('x', 'try_avg_three') // 编码 x 通道
-    //.encode('y', 'per_three') // 编码 y 通道
-    .encode('color', 'value')
-  
+    .transform({type: 'dodgeX'})
+    .encode('x', 'type') // 编码 x 通道
+    .encode('y', 'n') // 编码 y 通道
+    .encode('color', 'value');
+    //这时候可以声明一个 stackY 去修改 interval 标记的 y 通道
+    //使得条在视觉上产生了堆叠的效果，从而得到了我们的堆叠条形图。
+    //chart.facet('rect',{
+    //  fields: ['type']
+    //}
+    //);
+    chart.facetRect();
   // 标记（Mark） 是一个模版  
   // chart  
   //   .style('viewFill', '#4e79a7') // 设置视图区域样式

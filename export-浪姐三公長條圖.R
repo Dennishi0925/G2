@@ -9,4 +9,5 @@ df_sister_agg <- df_sister_third %>% select(matches("請按照喜愛度排序"))
   mutate(type = str_remove_all(type, "\\[|\\]")) %>%
   count(type, value)
 
+df_sister_agg %>% group_by(type) %>% summarise(top_n = max(n), n = sum(n))
 df_sister_agg %>% write_csv("data/df_sister_agg.csv")
