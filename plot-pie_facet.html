@@ -24,18 +24,25 @@
     //G2 图表实例使用了一种函数式风格的声明形式 API，
     //使得我们可以声明式地描述数据和图表中图形元素之间的关系，
     //从而描述最后的可视化。
-    chart.
-    coordinate({
-      type: 'polar'
-    });
-    chart
+
+
+    const facetRect = chart
+      .facetRect()
+      .data({
+        type: 'fetch',
+        value: 'https://raw.githubusercontent.com/Dennishi0925/G2/main/data/df_sister.csv'
+      })
+      .encode('x', 'type')
+      .coordinate({
+        type: 'polar'
+      });
+      //https://g2.antv.antgroup.com/en/manual/single-view/coordinate
+      //https://g2.antv.antgroup.com/en/spec/composition/facet-rect
+      //https://g2.antv.antgroup.com/examples
+    facetRect
       .interval() // 创建一个 Interval 标记
       //.point()
       //.data(data) // 绑定数据
-      .data({
-        type: 'fetch',
-        value: 'https://raw.githubusercontent.com/Dennishi0925/G2/main/data/df_sister_wind.csv'
-      })
       .encode('x', 'value') // 编码 x 通道
       .encode('y', 'n') // 编码 y 通道
       .encode('color', 'value')
