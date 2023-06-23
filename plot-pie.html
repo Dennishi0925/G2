@@ -10,16 +10,6 @@
 
   <script src="https://unpkg.com/@antv/g2@next/dist/g2.min.js"></script>
   <script>
-    // 准备数据
-    //const data = [
-    //  { genre: 'Sports', sold: 275 },
-    //  { genre: 'Strategy', sold: 115 },
-    //  { genre: 'Action', sold: 120 },
-    //  { genre: 'Shooter', sold: 350 },
-    //  { genre: 'Other', sold: 150 },
-    //];
-    //每个 G2 的可视化都是通过实例化 Chart 对象创建一个新的图表实例
-    //初始化图表实例
     const chart = new G2.Chart({
       //在声明图表选项的时候没有指定宽高的时候，G2 会使用 640px 作为宽，480px 作为高。
       //width: 800, // 图表高度
@@ -63,7 +53,7 @@
       //     range: [0, 1], // 指定值域
       //     /* 其他配置 */
       //   },
-      // )
+      // )  
       .encode('x', 'type') // 编码 x 通道
       .encode('y', 'n') // 编码 y 通道
       .axis('y', {
