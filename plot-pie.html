@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>My Timeline</title>
+  <title>pie single</title>
 </head>
 
 <body>
@@ -10,51 +10,61 @@
 
   <script src="https://unpkg.com/@antv/g2@next/dist/g2.min.js"></script>
   <script>
+    const data = [{
+      "type": "《歸途有風》",
+      "value": 1,
+      "n": 58
+    }, {
+      "type": "《歸途有風》",
+      "value": 2,
+      "n": 38
+    }, {
+      "type": "《歸途有風》",
+      "value": 3,
+      "n": 25
+    }, {
+      "type": "《歸途有風》",
+      "value": 4,
+      "n": 19
+    }, {
+      "type": "《歸途有風》",
+      "value": 5,
+      "n": 10
+    }, {
+      "type": "《歸途有風》",
+      "value": 6,
+      "n": 14
+    }]
+
     const chart = new G2.Chart({
-      //在声明图表选项的时候没有指定宽高的时候，G2 会使用 640px 作为宽，480px 作为高。
-      //width: 800, // 图表高度
-      //height: 400, // 图表宽度
-      container: 'container', // 挂载容器的 ID
+      container: 'container',
       autoFit: true,
-      //height: 400, // 图表宽度
       theme: 'classic',
     });
-    //chart.facetRect().point().transform({ type: 'pack' });
-    //声明可视化
-    //G2 图表实例使用了一种函数式风格的声明形式 API，
-    //使得我们可以声明式地描述数据和图表中图形元素之间的关系，
-    //从而描述最后的可视化。
     chart.
     coordinate({
       type: 'polar'
     });
     chart
-      .interval() // 创建一个 Interval 标记
-      //.point()
-      //.data(data) // 绑定数据
-      .data({
-        type: 'fetch',
-        value: 'https://raw.githubusercontent.com/Dennishi0925/G2/main/data/df_sister_wind.csv'
-      })
-      .encode('x', 'value') // 编码 x 通道
-      .encode('y', 'n') // 编码 y 通道
+      .interval()
+      .data(data)
+      .encode('x', 'value')
+      .encode('y', 'n')
       .encode('color', 'value')
-      .axis('y', false);
+      .axis('y', {
+        title: 'vote',
+        position: 'top'
+      })
+      //.axis('y', false)
+      .scale('color', {
+        // 指定映射后的颜色
+        range: ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#c564be', '#000000'],
+      })
+      .legend('color', {
+        title: 'vote',
+        position: 'left'
+      });
 
-    // 标记（Mark） 是一个模版  
-    // chart  
-    //   .style('viewFill', '#4e79a7') // 设置视图区域样式
-    //   .style('plotFill', '#f28e2c') // 绘制区域样式
-    //   .style('mainFill', '#e15759') // 主区域样式
-    //   .style('contentFill', '#76b7b2'); // 内容区域样式
-    //这些 API 本质上是不断地去修改这个内部存储可视化描述的选项，
-    //不同的 API 有不同的改变选项的行为
-
-    //各个区域的样式可以通过 ${name}${Style} 的形式去设置，
-    //其中 Style 是 G 的矩形支持的所有样式，比如 fill，stroke 等，
-    //注意首字母要大写，变成驼峰形式。
-
-    //渲染可视化
     chart.render();
   </script>
 </body>

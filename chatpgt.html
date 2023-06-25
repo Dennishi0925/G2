@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>test</title>
+</head>
+
+<body>
+  <div id="container" style="height: 400px; width: 80%"></div>
+
+  <script src="https://unpkg.com/@antv/g2@next/dist/g2.min.js"></script>
+  <script>
+    
+    const data = [{
+        category: 'A',
+        value: 10,
+        facet: '1'
+      },
+      {
+        category: 'B',
+        value: 20,
+        facet: '1'
+      },
+      {
+        category: 'C',
+        value: 15,
+        facet: '2'
+      },
+      {
+        category: 'D',
+        value: 25,
+        facet: '2'
+      },
+    ];
+
+    const chart = new G2.Chart({
+      container: 'container',
+      autoFit: true,
+      theme: 'classic',
+    });
+
+    chart.data(data);
+    chart.facet('rect', {
+      fields: ['facet'],
+      eachView: (view, facet) => {
+        view.coordinate('polar');
+        view.interval().position('category*value');
+      },
+    });
+
+    chart.render();
+  </script>
+</body>
+
+</html>

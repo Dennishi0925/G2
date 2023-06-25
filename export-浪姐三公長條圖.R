@@ -11,7 +11,9 @@ df_sister_agg <- df_sister_third %>% select(matches("請按照喜愛度排序"))
 
 df_sister_agg %>% group_by(type) %>% summarise(top_n = max(n), n = sum(n))
 df_sister_agg %>% write_csv("data/df_sister_agg.csv")
-
+df_sister_agg %>% filter(str_detect(type, "歸途|山河")) %>%
+  filter(value <= 3) %>%
+  jsonlite::toJSON()
 df_sister_agg %>% 
   filter(str_detect(type, "有風")) %>%
   write_csv("data/df_sister_wind.csv")
