@@ -1,0 +1,16 @@
+h1{
+    color: blue;
+}
+h2{
+    font-weight: bold;
+}
+.page{
+    margin: 5px;
+    padding: 5px;
+    border: 1px;
+    border-color: black;
+    border-style:ridge;
+}
+.job-title{
+    color: grey;
+}

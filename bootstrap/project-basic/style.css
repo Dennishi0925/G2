@@ -1,1 +1,24 @@
 h1 {color:burlywood}
+
+.sender{
+    text-align: right;
+}
+.add-name{
+    font-weight: bolder
+}
+
+.important-name{
+    font-weight: bolder
+}
+
+.add-date{
+    font-weight: bolder;
+}
+
+.add-address{
+    font-weight: bolder;
+}
+
+.motto{
+    font-style: italic;
+}
