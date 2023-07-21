@@ -1,0 +1,36 @@
+p,
+ul {
+    border: 2px solid rebeccapurple;
+    padding: .5em;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+}
+
+
+.block,
+li {
+  border: 2px solid blue;
+}
+
+.block {
+    display: block;
+}
+
+.inline {
+    display: inline;
+}
+
+.one {
+margin-right: 30px;
+}
+
+.two {
+margin-left: 10px;
+}
+
+.three {
+    margin: 10px;
+}
